@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg px-4 py-4 bg-white w-72">
+  <div class="custom_656:w-72e w-[100%]rounded-lg px-4 py-4 bg-white">
     <div class="flex justify-between items-center">
       <div>
         <p>
@@ -11,31 +11,38 @@
         <img src="~/assets/svg/like-heart.svg" alt="Not liked" width="18" />
       </div>
     </div>
-    <div class="mx-auto my-10">
-      <figure class="image is-4by3">
-        <img
-          :src="carData.img"
-          :alt="carData.name"
-          class="h-24 w-full object-cover"
-        />
-      </figure>
-    </div>
-    <div class="flex justify-between items-center my-4">
-      <div class="flex justify-normal items-center gap-2">
-        <img
-          src="~/assets/svg/gas-station-icon.svg"
-          alt="Gasoline"
-          width="18"
-        />
-        <span>{{ carData.gasolineLiter }} L</span>
+
+    <div class="custom_656:block flex">
+      <div class="mx-auto my-10">
+        <figure class="image is-4by3">
+          <img
+            :src="carData.img"
+            :alt="carData.name"
+            class="h-24 w-full object-cover"
+          />
+        </figure>
       </div>
-      <div class="flex justify-normal items-center gap-2">
-        <img src="~/assets/svg/car-type-icon.svg" alt="Transition" width="18" />
-        <span>{{ carData.type }}</span>
-      </div>
-      <div class="flex justify-normal items-center gap-2">
-        <img src="~/assets/svg/people-icon.svg" alt="People" width="18" />
-        <span>{{ carData.people }}</span>
+      <div class="custom_656:flex block justify-between items-center my-4">
+        <div class="flex justify-normal items-center gap-2 custom_656:my-0 my-4">
+          <img
+            src="~/assets/svg/gas-station-icon.svg"
+            alt="Gasoline"
+            width="18"
+          />
+          <span>{{ carData.gasolineLiter }} L</span>
+        </div>
+        <div class="flex justify-normal items-center gap-2 custom_656:mb-0 mb-4">
+          <img
+            src="~/assets/svg/car-type-icon.svg"
+            alt="Transition"
+            width="18"
+          />
+          <span>{{ carData.type }}</span>
+        </div>
+        <div class="flex justify-normal items-center gap-2 custom_656:mb-0 mb-4">
+          <img src="~/assets/svg/people-icon.svg" alt="People" width="18" />
+          <span>{{ carData.people }}</span>
+        </div>
       </div>
     </div>
     <div class="flex justify-between mt-8 mb-4 items-center">

@@ -36,16 +36,18 @@ export const useCarsStore = defineStore({
           this.popularCars = [];
         });
     },
-    fetchCars() {
+    fetchCars(q: string | null = null) {
       // fetch cars
       axios
-        .get("http://localhost:3456/cars", {
+        .get("http://localhost:3456/cars?q=" + q, {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
         })
         .then((res) => {
+          console.log(res.data);
+          
           this.cars = res.data.data;
         })
         .catch((err) => {
@@ -62,6 +64,8 @@ export const useCarsStore = defineStore({
           },
         })
         .then((res) => {
+          console.log(res.data);
+          
           this.car = res.data;
         })
         .catch((err) => {

@@ -21,6 +21,7 @@ export default {
         'custom': '736px',
         eight_hundred: '800px',
         xs: '350px',
+        custom_656: '656px',
       },
     },
   },

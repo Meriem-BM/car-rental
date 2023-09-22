@@ -90,10 +90,6 @@ import HeadLine from "@/components/HeadLine.vue";
 import { defineComponent } from "vue";
 import { useCarsStore } from "@/store/cars.store";
 
-definePageMeta({
-  layout: "default",
-});
-
 export default defineComponent({
   components: {
     AdsCardL,

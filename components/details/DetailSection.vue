@@ -1,5 +1,30 @@
 <template>
-  <div class="eight_hundred:flex block justify-between gap-4 mx-4">
+  <!-- Loeader -->
+  <div
+    v-if="!Object.keys(carsStore.getCar).length"
+    role="status"
+    class="flex justify-center items-center mt-8 mb-4 h-screen"
+  >
+    <svg
+      aria-hidden="true"
+      class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+      viewBox="0 0 100 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+        fill="currentColor"
+      />
+      <path
+        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+        fill="currentFill"
+      />
+    </svg>
+    <span class="sr-only">Loading...</span>
+  </div>
+  <!-- End Loader -->
+  <div v-else class="eight_hundred:flex block justify-between gap-4 mx-4">
     <div class="eight_hundred:w-[40%] w-[100%]">
       <div class="ads-card-right">
         <div></div>
@@ -14,31 +39,27 @@
           </span>
         </p>
         <img
-          :src="carData.img"
+          :src="carsStore.getCar?.img"
           alt="Ads"
           class="absolute lg:top-[58%] top-[58%] max-h-[34%] lg:h-[64%] h-[50%] space-x-reverse xl:right-[4%] lg:right-[12%] md:right-[8%] sm:right-[16%] right-[2%]"
         />
       </div>
       <div class="flex justify-between mt-6">
-        <div>
+        <div class="container" tabindex="1">
+          <img :src="carsStore.getCar?.img" alt="Ads" height="400px" width="400px" />
+        </div>
+        <div class="container" tabindex="1">
           <img
-            :src="cardData?.img"
+            :src="carsStore.getCar?.images[0].url"
             alt="Ads"
-            class="h-24"
+            height="400px" width="400px"
           />
         </div>
-        <div>
+        <div class="container" tabindex="1">
           <img
-            src="https://s3-alpha-sig.figma.com/img/702f/356e/48fe531e6fd2626c5d1041dbfcde3341?Expires=1696204800&Signature=D4-42vw6zUwTdQTjaCSQ0OJrx~QLbXx2kMEGD0URXBOyujXj6KD8gI9zvAa~CMrHVsZjUDm7~-jF6BTOYLUO9DanELqg8l8u048kHImThh2V42KS9qRL--OJMibTkCoYQIb7tmZ7Udmka3uCVXwCrV6Ty1IgYxqbGu9vM32hlXX9dWsrSrQwM69G78IrQhD4qGzKcoq~4G1lCf~N0bcD3EYbqhaio8oTyW1FX5naf5yEk1nmCLklaqx0yG3iqBkslVNCqcarXxo03-Y12cypsV67nmLobB2fRQFIJETt0d-zECeybSelS45lWNiSTNw~OQ~XuiNRUoh8zLBlJvptKA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            :src="carsStore.getCar?.images[1].url"
             alt="Ads"
-            class="h-24"
-          />
-        </div>
-        <div>
-          <img
-            src="https://s3-alpha-sig.figma.com/img/702f/356e/48fe531e6fd2626c5d1041dbfcde3341?Expires=1696204800&Signature=D4-42vw6zUwTdQTjaCSQ0OJrx~QLbXx2kMEGD0URXBOyujXj6KD8gI9zvAa~CMrHVsZjUDm7~-jF6BTOYLUO9DanELqg8l8u048kHImThh2V42KS9qRL--OJMibTkCoYQIb7tmZ7Udmka3uCVXwCrV6Ty1IgYxqbGu9vM32hlXX9dWsrSrQwM69G78IrQhD4qGzKcoq~4G1lCf~N0bcD3EYbqhaio8oTyW1FX5naf5yEk1nmCLklaqx0yG3iqBkslVNCqcarXxo03-Y12cypsV67nmLobB2fRQFIJETt0d-zECeybSelS45lWNiSTNw~OQ~XuiNRUoh8zLBlJvptKA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-            alt="Ads"
-            class="h-24"
+            height="400px" width="400px"
           />
         </div>
       </div>
@@ -49,7 +70,7 @@
       <div class="flex gap-8">
         <div>
           <p class="lg:text-3xl text-2xl font-bold text-gray-darker">
-            {{ carData.name }}
+            {{ carsStore.getCar?.name }}
           </p>
           <div class="flex gap-4 mt-2">
             <div class="flex gap-x-1">
@@ -88,7 +109,7 @@
       </div>
       <div class="flex gap-4 mt-4 mb-10">
         <p class="lg:text-lg text-md font-extralight text-gray-dark mt-4">
-          {{ carData.description }}
+          {{ carsStore.getCar?.description }}
         </p>
       </div>
       <div
@@ -126,17 +147,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useCarsStore } from "@/store/cars.store";
 
-export default {
-  name: "DetailSection",
-  props: {
-    carData: {
-      type: Object,
-      required: true,
-    },
-  },
+export default defineComponent({
+  setup() {
+    const carsStore = useCarsStore();
 
-  data() {
     const items = ref([
       {
         id: 1,
@@ -161,21 +177,21 @@ export default {
     ]);
 
     watch(
-      () => this.carData,
-      () => {
-        items.value[0].value = this.carData.type;
-        items.value[1].value = this.carData.people;
-        items.value[2].value = this.carData.gasolineLiter;
-        items.value[3].value = this.carData.steering;
-      },
-      { immediate: true }
+      () => carsStore.getCar,
+      (newVal) => {
+        items.value[0].value = newVal.type;
+        items.value[1].value = newVal.people;
+        items.value[2].value = newVal.gasolineLiter;
+        items.value[3].value = newVal.kindOfTransition;
+      }
     );
 
     return {
+      carsStore,
       items,
     };
   },
-};
+});
 </script>
 
 <style scoped lang="scss">
@@ -205,5 +221,22 @@ export default {
     margin-top: 1rem;
     margin: 0 auto;
   }
+}
+
+.container {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  
+  &:focus {
+    border: 1px solid blue;
+  }
+}
+
+.container img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 </style>
