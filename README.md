@@ -73,3 +73,5 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+https://www.figma.com/file/MoAYr7R9au83lS5Zxq9R4k/Assignment-Front-end-DM?node-id=1%3A1199&mode=dev
