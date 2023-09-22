@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg px-4 py-4 bg-white custom:w-72 w-full custom:mx-8">
+  <div class="rounded-lg px-4 py-4 bg-white w-72">
     <div class="flex justify-between items-center">
       <div>
         <p>
@@ -16,7 +16,7 @@
         <img
           :src="carData.img"
           :alt="carData.name"
-          class="h-24 w-full object-cover"
+          class="h-24"
         />
       </figure>
     </div>
@@ -60,7 +60,7 @@
 import { ICarData } from "@/types/types.shared";
 
 export default {
-  name: "ListedCard",
+  name: "CarsListedCard",
   props: {
     carData: {
       type: Object as () => ICarData,

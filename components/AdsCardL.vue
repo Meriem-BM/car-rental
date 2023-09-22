@@ -1,9 +1,11 @@
 <template>
   <div class="ads-card-left">
     <div></div>
-    <p class="text-white text-4xl ml-6 mt-10 w-72">
+    <p class="text-white md:text-4xl text-2xl mx-6 mt-10 md:w-72 w-90">
       The Best Platform for Car Rental
-      <span class="block mt-6 text-base font-light">
+      <span
+        class="block md:mt-6 mt-2 md:text-base text-xs font-light md:w-72 w-60"
+      >
         Ease of doing a car rental safely and reliably. Of course at a low
         price.</span
       >
@@ -40,6 +42,12 @@
     height: 100%;
     -webkit-mask-image: url("~/assets/svg/ads-bg-left.svg");
     mask-image: url("~/assets/svg/ads-bg-left.svg");
+  }
+}
+
+@media (max-width: 1400px) {
+  .ads-card-left {
+    width: 48%;
   }
 }
 

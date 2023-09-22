@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white py-6 px-4">
+  <nav class="bg-white py-6 px-4 mb-10">
     <div class="flex justify-between items-center">
       <div class="sm:ml-14 ml-0">
         <nuxt-link to="/">

@@ -1,9 +1,9 @@
 <template>
   <div class="ads-card-right">
     <div></div>
-    <p class="text-white text-4xl ml-6 mt-10 w-72">
+    <p class="text-white md:text-4xl text-2xl mx-6 mt-10 md:w-72 w-90">
       Easy way to rent a car at a low price
-      <span class="block mt-6 text-base font-light">
+      <span class="block md:mt-6 mt-2 md:text-base text-xs font-light md:w-72 w-60">
         Providing cheap car rental services and safe and comfortable
         facilities.</span
       >
@@ -45,6 +45,12 @@
   & > img {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+  }
+}
+
+@media (max-width: 1400px) {
+  .ads-card-right {
+    width: 48%;
   }
 }
 
