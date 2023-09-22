@@ -35,7 +35,7 @@
         <div
           class="flex justify-center items-center border rounded-full border-primary-gray p-2"
         >
-          <nuxt-link to="/liked">
+          <nuxt-link to="/">
             <img src="~/assets/svg/heart.svg" alt="Liked" class="max-h-12" />
           </nuxt-link>
         </div>

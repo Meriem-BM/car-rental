@@ -3,25 +3,26 @@
     <div class="eight_hundred:w-[40%] w-[100%]">
       <div class="ads-card-right">
         <div></div>
-        <p class="text-white xl:text-4xl md:text-3xl xs:text-3xl text-2xl pl-6 pr-2 mt-10 md:w-72 w-90">
-          Easy way to rent a car at a low price
+        <p
+          class="text-white xl:text-4xl md:text-3xl xs:text-3xl text-2xl pl-6 pr-2 mt-10 md:w-72 w-90"
+        >
+          Sports car with the best design and acceleration
           <span
             class="block md:mt-6 mt-2 md:text-sm xs:text-base text-sm pr-4 font-light md:w-72 w-60"
           >
-            Providing cheap car rental services and safe and comfortable
-            facilities.</span
-          >
+            Safety and comfort while driving a futuristic and elegant sports car
+          </span>
         </p>
         <img
-          src="https://s3-alpha-sig.figma.com/img/702f/356e/48fe531e6fd2626c5d1041dbfcde3341?Expires=1696204800&Signature=D4-42vw6zUwTdQTjaCSQ0OJrx~QLbXx2kMEGD0URXBOyujXj6KD8gI9zvAa~CMrHVsZjUDm7~-jF6BTOYLUO9DanELqg8l8u048kHImThh2V42KS9qRL--OJMibTkCoYQIb7tmZ7Udmka3uCVXwCrV6Ty1IgYxqbGu9vM32hlXX9dWsrSrQwM69G78IrQhD4qGzKcoq~4G1lCf~N0bcD3EYbqhaio8oTyW1FX5naf5yEk1nmCLklaqx0yG3iqBkslVNCqcarXxo03-Y12cypsV67nmLobB2fRQFIJETt0d-zECeybSelS45lWNiSTNw~OQ~XuiNRUoh8zLBlJvptKA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          :src="carData.img"
           alt="Ads"
-          class="absolute lg:top-[49%] top-[59%] max-h-full lg:h-[64%] h-[50%] space-x-reverse xl:right-[16%] lg:right-[12%] md:right-[8%] sm:right-[16%] right-[2%]"
+          class="absolute lg:top-[58%] top-[58%] max-h-[34%] lg:h-[64%] h-[50%] space-x-reverse xl:right-[4%] lg:right-[12%] md:right-[8%] sm:right-[16%] right-[2%]"
         />
       </div>
       <div class="flex justify-between mt-6">
         <div>
           <img
-            src="https://s3-alpha-sig.figma.com/img/702f/356e/48fe531e6fd2626c5d1041dbfcde3341?Expires=1696204800&Signature=D4-42vw6zUwTdQTjaCSQ0OJrx~QLbXx2kMEGD0URXBOyujXj6KD8gI9zvAa~CMrHVsZjUDm7~-jF6BTOYLUO9DanELqg8l8u048kHImThh2V42KS9qRL--OJMibTkCoYQIb7tmZ7Udmka3uCVXwCrV6Ty1IgYxqbGu9vM32hlXX9dWsrSrQwM69G78IrQhD4qGzKcoq~4G1lCf~N0bcD3EYbqhaio8oTyW1FX5naf5yEk1nmCLklaqx0yG3iqBkslVNCqcarXxo03-Y12cypsV67nmLobB2fRQFIJETt0d-zECeybSelS45lWNiSTNw~OQ~XuiNRUoh8zLBlJvptKA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            :src="cardData?.img"
             alt="Ads"
             class="h-24"
           />
@@ -42,10 +43,14 @@
         </div>
       </div>
     </div>
-    <div class="relative bg-white eight_hundred:w-[60%] w-[100%] p-6 eight_hundred:h-none sm:h-[450px] xs:h-[500px] h-[650px]">
+    <div
+      class="relative bg-white eight_hundred:w-[60%] w-[100%] p-6 eight_hundred:h-none sm:h-[450px] xs:h-[500px] h-[650px]"
+    >
       <div class="flex gap-8">
         <div>
-          <p class="lg:text-3xl text-2xl font-bold text-gray-darker">Toyota Avanza</p>
+          <p class="lg:text-3xl text-2xl font-bold text-gray-darker">
+            {{ carData.name }}
+          </p>
           <div class="flex gap-4 mt-2">
             <div class="flex gap-x-1">
               <img
@@ -83,14 +88,17 @@
       </div>
       <div class="flex gap-4 mt-4 mb-10">
         <p class="lg:text-lg text-md font-extralight text-gray-dark mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          voluptatum, quibusdam, quia, quod voluptates voluptatem exercitationem
-          quos voluptate quas quibusdam, quia, quod voluptates voluptatem
-          exercitationem quos voluptate quas
+          {{ carData.description }}
         </p>
       </div>
-      <div class="flex flex-wrap lg:gap-x-20 sm:gap-x-10 gap-x-4 gap-y-4 mt-4 sm:justify-normal justify-between">
-        <div v-for="item in items" :key="item.id" class="flex justify-between xl:w-[20%] lg:w-[40%] eight_hundred:w-[30%] xs:w-[40%] w-[100%]">
+      <div
+        class="flex flex-wrap lg:gap-x-20 sm:gap-x-10 gap-x-4 gap-y-4 mt-4 sm:justify-normal justify-between"
+      >
+        <div
+          v-for="item in items"
+          :key="item.id"
+          class="flex justify-between xl:w-[20%] lg:w-[40%] eight_hundred:w-[30%] xs:w-[40%] w-[100%]"
+        >
           <p class="text-gray-light font-thin">{{ item.name }}</p>
           <p class="text-gray-dark">{{ item.value }}</p>
         </div>
@@ -100,7 +108,9 @@
           class="absolute lg:text-3xl xs:text-xl text:lg font-medium text-gray-darker mt-2 xs:left-8 left-5 bottom-8"
         >
           $810.00 /
-          <span class="text-gray-light font-light ml-2 lg:text-sm text-xs"> day</span>
+          <span class="text-gray-light font-light ml-2 lg:text-sm text-xs">
+            day</span
+          >
         </p>
         <button
           type="button"
@@ -114,18 +124,58 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const items = [
-  { id: 1, name: "TypeCar", value: "MPV" },
-  { id: 2, name: "Capacity", value: "Black" },
-  { id: 3, name: "Capacity", value: "2020" },
-  { id: 4, name: "Steering", value: "6" },
-];
+<script lang="ts">
+import { defineComponent } from "vue";
 
-onMounted(() => {
-  console.log("mounted");
-});
+export default {
+  name: "DetailSection",
+  props: {
+    carData: {
+      type: Object,
+      required: true,
+    },
+  },
 
+  data() {
+    const items = ref([
+      {
+        id: 1,
+        name: "Type",
+        value: "",
+      },
+      {
+        id: 2,
+        name: "People",
+        value: "",
+      },
+      {
+        id: 3,
+        name: "Gasoline",
+        value: "",
+      },
+      {
+        id: 4,
+        name: "Steering",
+        value: "",
+      },
+    ]);
+
+    watch(
+      () => this.carData,
+      () => {
+        items.value[0].value = this.carData.type;
+        items.value[1].value = this.carData.people;
+        items.value[2].value = this.carData.gasolineLiter;
+        items.value[3].value = this.carData.steering;
+      },
+      { immediate: true }
+    );
+
+    return {
+      items,
+    };
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -146,16 +196,11 @@ onMounted(() => {
     -webkit-mask-image: url("~/assets/svg/ads-bg-right.svg");
     mask-image: url("~/assets/svg/ads-bg-right.svg");
   }
-
-  & > img {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
 }
 
 @media (max-width: 768px) {
   .ads-card-right {
-    width: 90%;
+    width: 100%;
     height: 300px;
     margin-top: 1rem;
     margin: 0 auto;

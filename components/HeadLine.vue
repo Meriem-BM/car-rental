@@ -4,7 +4,7 @@
       <p>{{ title }}</p>
     </div>
     <div v-if="showLink" class="flex justify-normal items-center gap-2">
-      <nuxt-link to="/cars" class="text-blue-500 hover:text-blue-700">
+      <nuxt-link to="/" class="text-blue-500 hover:text-blue-700">
         View All
       </nuxt-link>
     </div>

@@ -6,6 +6,7 @@ export const useCarsStore = defineStore({
   state: () => ({
     cars: [],
     popularCars: [],
+    car: {},
   }),
   getters: {
     getCars(state) {
@@ -13,6 +14,9 @@ export const useCarsStore = defineStore({
     },
     getPopularCars(state) {
       return state.popularCars;
+    },
+    getCar(state) {
+      return state.car;
     },
   },
   actions: {
@@ -26,33 +30,43 @@ export const useCarsStore = defineStore({
           },
         })
         .then((res) => {
-          console.log(res.data);
-
           this.popularCars = res.data;
         })
         .catch((err) => {
           this.popularCars = [];
-          console.log(err);
         });
     },
     fetchCars() {
-        // fetch cars
-        axios
-            .get("http://localhost:3456/cars", {
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            })
-            .then((res) => {
-            console.log(res.data);
-    
-            this.cars = res.data.data;
-            })
-            .catch((err) => {
-            this.cars = [];
-            console.log(err);
-            });
-        }
+      // fetch cars
+      axios
+        .get("http://localhost:3456/cars", {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+        .then((res) => {
+          this.cars = res.data.data;
+        })
+        .catch((err) => {
+          this.cars = [];
+        });
+    },
+    fetchCarById(id: string) {
+      // fetch cars
+      axios
+        .get("http://localhost:3456/cars/" + id, {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+        .then((res) => {
+          this.car = res.data;
+        })
+        .catch((err) => {
+          this.car = {};
+        });
+    },
   },
 });

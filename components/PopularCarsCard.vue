@@ -13,11 +13,7 @@
     </div>
     <div class="mx-auto my-10">
       <figure class="image is-4by3">
-        <img
-          :src="carData.img"
-          :alt="carData.name"
-          class="h-24"
-        />
+        <img :src="carData.img" :alt="carData.name" class="h-24" />
       </figure>
     </div>
     <div class="flex justify-between items-center my-4">
@@ -47,6 +43,7 @@
       </div>
       <div>
         <button
+          @click="rediredtToCarDetails"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Rent Now
@@ -60,11 +57,17 @@
 import { ICarData } from "@/types/types.shared";
 
 export default {
-  name: "CarsListedCard",
+  name: "PopularCarsCard",
   props: {
     carData: {
       type: Object as () => ICarData,
       required: true,
+    },
+  },
+
+  methods: {
+    rediredtToCarDetails() {
+      this.$router.push(`/details/${this.carData.id}`);
     },
   },
 };

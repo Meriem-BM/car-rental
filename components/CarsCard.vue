@@ -47,6 +47,7 @@
       </div>
       <div>
         <button
+          @click="rediredtToCarDetails"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Rent Now
@@ -65,6 +66,12 @@ export default {
     carData: {
       type: Object as () => ICarData,
       required: true,
+    },
+  },
+
+  methods: {
+    rediredtToCarDetails() {
+      this.$router.push(`/details/${this.carData.id}`);
     },
   },
 };
