@@ -45,27 +45,35 @@
         />
       </div>
       <div class="flex justify-between mt-6">
-        <div class="container" tabindex="1">
-          <img :src="carsStore.getCar?.img" alt="Ads" height="400px" width="400px" />
+        <div class="container ads-card-right-small" tabindex="1">
+          <div></div>
+          <img
+            :src="carsStore.getCar?.img"
+            alt="Ads"
+            height="400px"
+            width="400px"
+          />
         </div>
-        <div class="container" tabindex="1">
+        <div class="container flex items-center" tabindex="1">
           <img
             :src="carsStore.getCar?.images[0].url"
             alt="Ads"
-            height="400px" width="400px"
+            height="400px"
+            width="400px"
           />
         </div>
-        <div class="container" tabindex="1">
+        <div class="container flex items-center" tabindex="1">
           <img
             :src="carsStore.getCar?.images[1].url"
             alt="Ads"
-            height="400px" width="400px"
+            height="400px"
+            width="400px"
           />
         </div>
       </div>
     </div>
     <div
-      class="relative bg-white eight_hundred:w-[60%] w-[100%] p-6 eight_hundred:h-none sm:h-[450px] xs:h-[500px] h-[650px]"
+      class="relative bg-white eight_hundred:w-[60%] w-[100%] p-6 eight_hundred:h-auto sm:h-[450px] xs:h-[500px] h-[650px]"
     >
       <div class="flex gap-8">
         <div>
@@ -223,14 +231,30 @@ export default defineComponent({
   }
 }
 
+.ads-card-right-small {
+  position: relative;
+  background-color: #3563e9;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  & > div {
+    position: absolute;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url("~/assets/svg/ads-bg-right.svg");
+    mask-image: url("~/assets/svg/ads-bg-right.svg");
+  }
+}
+
 .container {
   width: 200px;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 5px;
-  
+
   &:focus {
-    border: 1px solid blue;
+    border: 2px solid blue;
   }
 }
 
