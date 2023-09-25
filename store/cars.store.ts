@@ -39,7 +39,7 @@ export const useCarsStore = defineStore({
     fetchCars(q: string | null = null) {
       // fetch cars
       axios
-        .get("http://localhost:3456/cars?q=" + q, {
+        .get("http://localhost:3456/cars" + (q ? ("?q=" + q) : ""), {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
