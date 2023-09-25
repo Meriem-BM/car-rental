@@ -1,13 +1,31 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import { ICarData } from "@/types/types.shared";
 
+interface CarDeatils {
+  name: string;
+  type: string;
+  description: string;
+  gasolineLiter: number;
+  kindOfTransition: string;
+  people: number;
+  pricePerDay: number;
+  id: string;
+  img: string;
+  images: Array<{url: string}>;
+}
+interface CarsState {
+  cars: ICarData[];
+  popularCars: any[];
+  car: CarDeatils | null;
+}
 export const useCarsStore = defineStore({
   id: "cars",
   state: () => ({
     cars: [],
     popularCars: [],
-    car: {},
-  }),
+    car: null,
+  }) as CarsState,
   getters: {
     getCars(state) {
       return state.cars;
@@ -63,13 +81,11 @@ export const useCarsStore = defineStore({
             "Access-Control-Allow-Origin": "*",
           },
         })
-        .then((res) => {
-          console.log(res.data);
-          
+        .then((res) => {          
           this.car = res.data;
         })
         .catch((err) => {
-          this.car = {};
+          this.car = null;
         });
     },
   },

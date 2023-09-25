@@ -1,7 +1,7 @@
 <template>
   <!-- Loeader -->
   <div
-    v-if="!Object.keys(carsStore.getCar).length"
+    v-if="carsStore.getCar && !Object.keys(carsStore.getCar).length"
     role="status"
     class="flex justify-center items-center mt-8 mb-4 h-screen"
   >
@@ -165,17 +165,17 @@ export default defineComponent({
       {
         id: 1,
         name: "Type",
-        value: "",
+        value: 0,
       },
       {
         id: 2,
         name: "People",
-        value: "",
+        value: 0,
       },
       {
         id: 3,
         name: "Gasoline",
-        value: "",
+        value: 0,
       },
       {
         id: 4,
@@ -187,6 +187,7 @@ export default defineComponent({
     watch(
       () => carsStore.getCar,
       (newVal) => {
+        if (!newVal) return;
         items.value[0].value = newVal.type;
         items.value[1].value = newVal.people;
         items.value[2].value = newVal.gasolineLiter;
